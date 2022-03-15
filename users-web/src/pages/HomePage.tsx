@@ -1,7 +1,12 @@
-import React from 'react'
+import { ListUsers } from '../components/ListUsers';
+import { UserDetail } from '../components/UserDetail';
 
 export const HomePage = () => {
+
   return (
-    <div>HomePage</div>
+    <div>
+      <ListUsers />
+      <UserDetail />
+    </div>
   )
 }
