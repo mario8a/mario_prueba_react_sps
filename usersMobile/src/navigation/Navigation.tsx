@@ -14,7 +14,7 @@ export const Navigation = () => {
         headerShown: false,
         cardStyle: {
           backgroundColor: 'white',
-        }
+        },
       }}
     >
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
