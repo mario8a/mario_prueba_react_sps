@@ -1,24 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, Text, View } from 'react-native';
-import usersAPI from '../api/usersAPI';
-import { UsersDetail, UsersResponse } from '../interfaces/usersInterface';
+import React from 'react';
+import { ActivityIndicator, FlatList, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { ListUsers } from '../components/ListUsers';
+import { useUsers } from '../hooks/useUsers';
 
 export const HomeScreen = () => {
 
-  const [isLoading, setIsLoading] = useState(true);
-  const [users, setUsers] = useState<UsersDetail[]>([]);
-
-  const getUsers = async () => {
-    const response = await usersAPI.get<UsersResponse>('/users');
-    const { data } = response.data;
-    setUsers(data);
-
-    setIsLoading(false);
-  };
-
-  useEffect(() => {
-    getUsers();
-  }, []);
+  const { users, isLoading } = useUsers();
+  const { top } = useSafeAreaInsets();
 
   if (isLoading) {
     return (
@@ -32,7 +21,13 @@ export const HomeScreen = () => {
 
   return (
     <View>
-      <Text>{users[0].first_name}</Text>
+      <View style={{marginTop: top + 20}}>
+        <FlatList
+          data={users}
+          renderItem={({item}) => <ListUsers user={item}/>}
+          keyExtractor={(item) => item.id.toString()}
+        />
+      </View>
     </View>
   );
 };
