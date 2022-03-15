@@ -1,13 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import { HomePage } from './pages/HomePage';
+import { UsersProvider } from './context/UsersProvider';
+
 
 function App() {
   return (
-    <div className="App">
+    <UsersProvider>
       <HomePage />
-    </div>
+    </UsersProvider>
   );
 }
 
