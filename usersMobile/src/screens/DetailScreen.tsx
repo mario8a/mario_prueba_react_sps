@@ -1,10 +1,11 @@
 import React from 'react';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { RootStackParams } from '../navigation/Navigation';
 
 interface Props extends StackScreenProps<RootStackParams,'DetailScreen'>{}
 
-export const DetailScreen = ({ route }: Props) => {
+export const DetailScreen = ({ route, navigation }: Props) => {
 
   const user = route.params;
 
@@ -17,7 +18,7 @@ export const DetailScreen = ({ route }: Props) => {
             style={{height: '100%', width: '100%', borderRadius: 60}}
           />
         </View>
-
+        {/* Close button */}
         <View style={styles.textContainer}>
           <Text style={styles.textName}>{user.first_name}</Text>
           <Text style={styles.textEmail}>{user.email}</Text>
@@ -27,6 +28,19 @@ export const DetailScreen = ({ route }: Props) => {
             </Text>
           </TouchableOpacity>
         </View>
+      </View>
+
+      {/* Close button */}
+      <View style={styles.backBtn}>
+        <TouchableOpacity
+          onPress={() => navigation.pop() }
+        >
+          <Icon
+            color="black"
+            name="arrow-back-outline"
+            size={40}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );
