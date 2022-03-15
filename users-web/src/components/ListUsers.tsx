@@ -1,6 +1,9 @@
 import { useContext, useEffect } from 'react'
 import { UserContext } from '../context/UsersContext';
 
+import '../styles/listUsersStyles.scss';
+import { CardItem } from './CardItem';
+
 export const ListUsers = () => {
   const { users ,getUsers, getUserDetail } = useContext(UserContext)
 
@@ -10,13 +13,10 @@ export const ListUsers = () => {
   
 
   return (
-    <div>
+    <div className='list__container'>
       {
         users.map(user => (
-          <div key={user.id} onClick={() => getUserDetail(user.id) }>
-            <img src={user.avatar} alt={user.first_name} />
-            <p>{user.first_name} {user.last_name}</p>
-          </div>
+          <CardItem key={user.id} user={user} getUserDetail={getUserDetail} />
         ))
       }
     </div>

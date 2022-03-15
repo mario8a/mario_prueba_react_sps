@@ -1,6 +1,7 @@
-import React from 'react'
 import { useContext } from 'react';
 import { UserContext } from '../context/UsersContext';
+
+import '../styles/cardDetailStyles.scss';
 
 export const UserDetail = () => {
 
@@ -9,7 +10,13 @@ export const UserDetail = () => {
   return (
     <>
       {
-       currentUser && <div> <h1> {currentUser.email} </h1> </div>
+       currentUser && (
+        <div className="cardDetail">
+          <img className='image-card' src={currentUser.avatar} alt={currentUser.first_name} />
+          <h1> {currentUser.first_name} {currentUser.last_name} </h1>
+          <p className="title"> Email {currentUser.email} </p>
+        </div>
+       )
       }
     </>
   )
