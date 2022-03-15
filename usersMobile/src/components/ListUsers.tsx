@@ -25,7 +25,7 @@ export const ListUsers = ({user}: Props) => {
           style={styles.image}
         />
         <Text style={styles.userName}>
-          {user.first_name}
+          {user.first_name} {user.last_name}
         </Text>
       </TouchableOpacity>
     </ScrollView>

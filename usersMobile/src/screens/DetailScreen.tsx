@@ -20,7 +20,7 @@ export const DetailScreen = ({ route, navigation }: Props) => {
         </View>
         {/* Close button */}
         <View style={styles.textContainer}>
-          <Text style={styles.textName}>{user.first_name}</Text>
+          <Text style={styles.textName}>{user.first_name} {user.last_name}</Text>
           <Text style={styles.textEmail}>{user.email}</Text>
           <TouchableOpacity style={styles.btnMessage}>
             <Text style={{color: 'white', fontWeight: 'bold'}}>
