@@ -7,7 +7,7 @@ Pagina que muestra un listado de usuarios y su detalle usando la API publica [Us
 <br>
  <div align="center">
     <br>
-    <img src="" alt="img" width="auto" height="auto" />
+    <img src="https://github.com/mario8a/mario_prueba_react_sps/blob/main/users-web/screenshots/userWeb.jpg" alt="img" width="auto" height="auto" />
     <br>
 </div>
 
